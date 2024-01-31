@@ -1,5 +1,5 @@
 # YOLOV7_AnchorFree_PyTorch
-yolov7's anchor free model to pytorch
+yolov7's anchor free model to pytorch  
 
 ## Demo
 <img src="assets/result1.jpg" width="400" height="260"/>   <img src="assets/result2.jpg" width="400" height="260"/>  
