@@ -137,7 +137,6 @@ class IV6Detect(nn.Module):
         self.no = nc + self.reg_max * 4
         self.stride = torch.tensor([ 8., 16., 32.])
 
-        # Decouple
         c2, c3 = max(ch[0] // 4, 16), max(ch[0], self.no - 4)  # channels
         self.cv2 = nn.ModuleList(
             nn.Sequential(BasicConv(x, c2, 3), BasicConv(c2, c2, 3), nn.Conv2d(c2, 4 * self.reg_max, 1)) for x in ch)
@@ -154,6 +153,8 @@ class IV6Detect(nn.Module):
         shape = x[0].shape  # BCHW
         for i in range(self.nl):
             x[i] = torch.cat((self.im2[i](self.cv2[i](self.ia2[i](x[i]))), self.im3[i](self.cv3[i](self.ia3[i](x[i])))), 1)
+        
+        # Decouple
         box, cls = torch.cat([xi.view(shape[0], self.no, -1) for xi in x], 2).split((self.reg_max * 4, self.nc), 1)
         if not self.deploy:
             return x, box, cls
