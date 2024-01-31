@@ -9,7 +9,7 @@ yolov7's anchor free model to pytorch
 传送门
 
 ## Model
-[yolov7_samylee.weights](https://pan.baidu.com/s/11xl6V5zcSvBxC9W2-im2eA), 提取码8888
+[yolov7-u6-samylee.pt](https://pan.baidu.com/s/11xl6V5zcSvBxC9W2-im2eA), 提取码8888
 
 ## Reference
 https://github.com/WongKinYiu/yolov7  
